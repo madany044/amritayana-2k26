@@ -34,7 +34,7 @@ export default function Home() {
         >
           <div className={styles.heroTag}>
             <span className={styles.pulse} />
-            April 06–30, 2025 &nbsp;|&nbsp; MRIT Campus
+            April 06–30, 2026 &nbsp;|&nbsp; MRIT Campus
           </div>
 
           <h1 className={styles.heroH1}>
@@ -55,7 +55,7 @@ export default function Home() {
         </motion.div>
 
         <div className={styles.heroStats}>
-          {[['9','Events'], ['7','Branches'], ['2','Days']].map(([n, l]) => (
+          {[['9', 'Events'], ['7', 'Branches'], ['2', 'Days']].map(([n, l]) => (
             <motion.div
               key={l}
               className={styles.statCard}
