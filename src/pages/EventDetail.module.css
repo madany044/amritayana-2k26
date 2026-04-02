@@ -1,0 +1,148 @@
+.page {
+  padding-top: 64px;
+  min-height: 100vh;
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.loading {
+  padding-top: 120px;
+  text-align: center;
+  color: var(--text2);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text2);
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.back:hover { color: var(--accent); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.banner {
+  height: 280px;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerEmoji { font-size: 6rem; }
+
+.body { padding: 2rem 2.5rem; }
+
+.header { margin-bottom: 1.5rem; }
+.header .badge { margin-bottom: 0.75rem; }
+
+.title {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metaItem {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1rem;
+}
+
+.metaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.metaValue {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.desc {
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.rules {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.rulesTitle {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: var(--accent2);
+  margin-bottom: 1rem;
+}
+
+.rulesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rulesList li {
+  font-size: 0.875rem;
+  color: var(--text2);
+  padding-left: 1.4rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.rulesList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.cta {
+  width: 100%;
+  padding: 16px;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+}
