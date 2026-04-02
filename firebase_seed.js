@@ -25,129 +25,81 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-const db  = getFirestore(app)
+const db = getFirestore(app)
 
 // ── Event data ───────────────────────────────────────────────
 
 const EVENTS = [
   {
-    name: 'Chess',
-    date: 'Apr 18',
-    venue: 'Main Hall, Block A',
-    category: 'solo',
-    description: 'Classic strategy game — outwit your opponent across timed rounds. Individual brilliance, no team to hide behind.',
-    rules: [
-      'Standard FIDE rules apply',
-      'Time control: 15 min + 10 sec increment',
-      'Round-robin; top 2 advance to knockout',
-      'Report to venue 15 minutes before start',
-      'Use of phones during play = disqualification',
-    ],
-    emoji: '♟',
-  },
-  {
-    name: 'Table Tennis Doubles',
-    date: 'Apr 18',
-    venue: 'Sports Block, Court 2',
+    name: 'Table Tennis Doubles (Boys & Girls)',
+    date: '7th April',
+    venue: 'Sports room',
     category: 'doubles',
-    description: 'Fast-paced doubles TT. Two players, one mission — smash the competition into the table.',
-    rules: [
-      'Standard ITTF doubles rules',
-      'Best of 3 sets; each set to 11 points',
-      'Both players must be from the same branch',
-      'No coaching allowed during a set',
-      'Players must bring their own rackets',
-    ],
+    description: 'Faculty Coordinator: Mr Sudeep. Student Coordinator: Somashekar (CSE) (89046 80093).',
     emoji: '🏓',
   },
   {
-    name: 'Tug of War',
-    date: 'Apr 19',
-    venue: 'Ground A',
-    category: 'team',
-    description: 'Pure strength and synchronized pulling. Eight bodies, one rope, one winner.',
-    rules: [
-      '8 members per team; up to 2 substitutes',
-      'Combined team weight limit: 560 kg',
-      '3 rounds — 2 wins qualify',
-      'Proper footwear mandatory; no studs',
-      'Rope crossing the centre mark = win',
-    ],
-    emoji: '💪',
+    name: 'Chess (Boys & Girls)',
+    date: '8th April',
+    venue: 'Sports room',
+    category: 'solo',
+    description: 'Faculty Coordinators: Mr Sathyanarayan, Mr Prashanth Kumar A P, Mr Sudeep. Student Coordinators: Nihal, Bindushree.',
+    emoji: '♟',
   },
   {
-    name: 'Volleyball',
-    date: 'Apr 19',
-    venue: 'Volleyball Court',
-    category: 'team',
-    description: 'Spike, set, serve — dominate the net with your branch team.',
-    rules: [
-      '6 members per team; 6 substitutes allowed',
-      'Standard FIVB rules',
-      'Best of 3 sets; rally scoring to 25 (3rd set to 15)',
-      'Two 30-second timeouts per set per team',
-      'Libero substitution rules apply',
-    ],
-    emoji: '🏐',
-  },
-  {
-    name: 'Throwball',
-    date: 'Apr 18',
-    venue: 'Ground B',
-    category: 'team',
-    description: 'Speed, accuracy, fearless catching. Throw it hard, catch it clean, outscore the opposition.',
-    rules: [
-      'Women only event',
-      '7 members per team; 3 substitutes',
-      '3 sets of 25 points (rally point system)',
-      'Ball must be thrown — not hit or spiked',
-      'Foul on crossing the centre line',
-    ],
-    emoji: '🎯',
-  },
-  {
-    name: 'Badminton',
-    date: 'Apr 19',
-    venue: 'Indoor Court',
-    category: 'team',
-    description: 'Smash and rally your way to glory through singles and doubles on the indoor court.',
-    rules: [
-      '4 members per team (2M + 2F recommended)',
-      'Format: 2 singles + 1 mixed doubles',
-      'BWF standard rules',
-      'Shuttlecocks provided by organizers',
-      'Each match: best of 3 games to 21',
-    ],
+    name: 'Staff Badminton (Men\'s & Women\'s)',
+    date: '9th & 10th April',
+    venue: 'MRIT Badminton court',
+    category: 'doubles',
+    description: 'Faculty Coordinator: Mr Raghu. Student Coordinator: Nisarga H(CSE) 8073214756.',
     emoji: '🏸',
   },
   {
-    name: 'Kabaddi',
-    date: 'Apr 19',
-    venue: 'Ground A',
+    name: 'Tug of War (Boys & Girls)',
+    date: '11th April',
+    venue: 'MRIT Ground',
     category: 'team',
-    description: "Raid, tackle, hold your breath. India's oldest sport, raw and relentless.",
-    rules: [
-      '7 players on court; 3 substitutes',
-      'Standard Amateur Kabaddi Federation rules',
-      'Two halves of 20 minutes each',
-      "Raider must chant 'kabaddi' continuously",
-      'Anti-raiders must tackle without crossing baulk line',
-    ],
+    description: 'Faculty Coordinators: Ms Dhanya, Dr Divya, Mr Sudeep. Student Coordinators: Manoj (ECE) 63639 02189, Keerthan(ECE) 63662 01248.',
+    emoji: '💪',
+  },
+  {
+    name: 'Volleyball (Boys)',
+    date: '15th April',
+    venue: 'Volleyball Court',
+    category: 'team',
+    description: 'Faculty Coordinators: Ms Dhanya, Mr Sudeep. Student Coordinators: Tilak(ECE) 79968 76175, Manoj (ECE) 63639 02189.',
+    emoji: '🏐',
+  },
+  {
+    name: 'Throwball (Girls)',
+    date: '15th April',
+    venue: 'Throwball Court',
+    category: 'team',
+    description: 'Faculty Coordinators: Ms Harshitha, Mr Sudeep. Student Coordinator: Somashekar (CSE) (89046 80093).',
+    emoji: '🎯',
+  },
+  {
+    name: 'Badminton (Boys & Girls)',
+    date: '16th & 17th April',
+    venue: 'MRIT Badminton Court',
+    category: 'doubles',
+    description: 'Faculty Coordinators: Mr Sudeep, Ms Bhoomika, Ms Aishwarya. Student Coordinators: Hemanth C(CSE) 8073 580 159, Madan Y(CSE) 9353240289, Ruhan.',
+    emoji: '🏸',
+  },
+  {
+    name: 'Kabaddi (Boys & Girls)',
+    date: '18th April',
+    venue: 'Kabaddi Court',
+    category: 'team',
+    description: 'Faculty Coordinators: Dr Nakul N, Dr Bharathesh Patel N. Student Coordinators: Somashekar (CSE) (89046 80093), Prithvik (CSE) 7892105474.',
     emoji: '🤸',
   },
   {
-    name: 'Cricket',
-    date: 'Apr 18',
-    venue: 'Cricket Ground',
+    name: 'Cricket (Boys)',
+    date: '21st, 22nd & 23rd April',
+    venue: 'MRIT Ground',
     category: 'team',
-    description: 'T10 format — ten overs, tape ball, total chaos. Swing for the fences.',
-    rules: [
-      '11 members per team; 4 substitutes',
-      'T10 format: 10 overs per side',
-      'Tape ball cricket — no hard ball',
-      'ICC rules adapted for T10',
-      'Toss 10 minutes before scheduled start',
-    ],
+    description: 'Faculty Coordinators: Mr Raghu, Mr Sudeep. Student Coordinators: Somashekar (CSE) (89046 80093), Prithvik (CSE) 7892105474.',
     emoji: '🏏',
   },
 ]
@@ -172,25 +124,25 @@ async function seedEvents() {
 
 async function seedResults(eventRefs) {
   const sampleResults = [
-    { eventName: 'Chess',      branch: 'CSE',  position: 1 },
-    { eventName: 'Chess',      branch: 'ISE',  position: 2 },
-    { eventName: 'Chess',      branch: 'AIML', position: 3 },
-    { eventName: 'Volleyball', branch: 'CSE',  position: 1 },
-    { eventName: 'Volleyball', branch: 'MECH', position: 2 },
-    { eventName: 'Volleyball', branch: 'ECE',  position: 3 },
-    { eventName: 'Cricket',    branch: 'ISE',  position: 1 },
-    { eventName: 'Cricket',    branch: 'CSE',  position: 2 },
-    { eventName: 'Cricket',    branch: 'CIVIL',position: 3 },
+    { eventName: 'Chess (Boys & Girls)', branch: 'CSE', position: 1 },
+    { eventName: 'Chess (Boys & Girls)', branch: 'ISE', position: 2 },
+    { eventName: 'Chess (Boys & Girls)', branch: 'AIML', position: 3 },
+    { eventName: 'Volleyball (Boys)', branch: 'CSE', position: 1 },
+    { eventName: 'Volleyball (Boys)', branch: 'MECH', position: 2 },
+    { eventName: 'Volleyball (Boys)', branch: 'ECE', position: 3 },
+    { eventName: 'Cricket (Boys)', branch: 'ISE', position: 1 },
+    { eventName: 'Cricket (Boys)', branch: 'CSE', position: 2 },
+    { eventName: 'Cricket (Boys)', branch: 'CIVIL', position: 3 },
   ]
 
   const POINTS = { 1: 10, 2: 6, 3: 3 }
 
   for (const r of sampleResults) {
     await addDoc(collection(db, 'results'), {
-      eventId:  eventRefs[r.eventName],
-      branch:   r.branch,
+      eventId: eventRefs[r.eventName],
+      branch: r.branch,
       position: r.position,
-      points:   POINTS[r.position],
+      points: POINTS[r.position],
     })
     console.log(`  ✓ Result: ${r.eventName} — ${r.branch} (${r.position}st/nd/rd)`)
   }

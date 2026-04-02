@@ -26,7 +26,10 @@
   margin-bottom: 2rem;
   transition: color 0.2s;
 }
-.back:hover { color: var(--accent); }
+
+.back:hover {
+  color: var(--accent);
+}
 
 .card {
   background: var(--surface);
@@ -50,12 +53,21 @@
   object-fit: cover;
 }
 
-.bannerEmoji { font-size: 6rem; }
+.bannerEmoji {
+  font-size: 6rem;
+}
 
-.body { padding: 2rem 2.5rem; }
+.body {
+  padding: 2rem 2.5rem;
+}
 
-.header { margin-bottom: 1.5rem; }
-.header .badge { margin-bottom: 0.75rem; }
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header .badge {
+  margin-bottom: 0.75rem;
+}
 
 .title {
   font-family: var(--font-head);

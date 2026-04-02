@@ -18,7 +18,7 @@ export default function EventDetail() {
   }, [id])
 
   if (loading) return <div className={styles.loading}>Loading…</div>
-  if (!event)  return <div className={styles.loading}>Event not found.</div>
+  if (!event) return <div className={styles.loading}>Event not found.</div>
 
   return (
     <div className={styles.page}>
@@ -51,10 +51,10 @@ export default function EventDetail() {
             {/* Meta grid */}
             <div className={styles.metaGrid}>
               {[
-                ['Date',     event.date],
-                ['Venue',    event.venue],
+                ['Date', event.date],
+                ['Venue', event.venue],
                 ['Category', event.category],
-                ['Format',   event.category === 'solo' ? '1 Player' : event.category === 'doubles' ? '2 Players' : 'Team'],
+                ['Format', event.category === 'solo' ? '1 Player' : event.category === 'doubles' ? '2 Players' : 'Team'],
               ].map(([label, value]) => (
                 <div key={label} className={styles.metaItem}>
                   <div className={styles.metaLabel}>{label}</div>

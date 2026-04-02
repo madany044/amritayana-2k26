@@ -6,7 +6,10 @@
   cursor: pointer;
   transition: border-color 0.3s;
 }
-.card:hover { border-color: var(--border2); }
+
+.card:hover {
+  border-color: var(--border2);
+}
 
 .img {
   height: 180px;
@@ -17,16 +20,21 @@
   justify-content: center;
 }
 
-.emoji { font-size: 4rem; }
+.emoji {
+  font-size: 4rem;
+}
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(8,10,15,0.7), transparent);
+  background: linear-gradient(to top, rgba(8, 10, 15, 0.7), transparent);
   opacity: 0.4;
   transition: opacity 0.3s;
 }
-.card:hover .overlay { opacity: 0.7; }
+
+.card:hover .overlay {
+  opacity: 0.7;
+}
 
 .badge {
   position: absolute;
@@ -34,7 +42,9 @@
   right: 12px;
 }
 
-.body { padding: 1.25rem; }
+.body {
+  padding: 1.25rem;
+}
 
 .title {
   font-family: var(--font-head);

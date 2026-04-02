@@ -34,7 +34,7 @@ export default function Home() {
         >
           <div className={styles.heroTag}>
             <span className={styles.pulse} />
-            April 18–19, 2025 &nbsp;|&nbsp; RNSIT Campus
+            April 06–30, 2025 &nbsp;|&nbsp; MRIT Campus
           </div>
 
           <h1 className={styles.heroH1}>

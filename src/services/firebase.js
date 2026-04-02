@@ -14,12 +14,12 @@ import {
 // ── Firebase config ─────────────────────────────────────────
 // Get these from Firebase Console → Project Settings → Your Apps → SDK setup
 const firebaseConfig = {
-  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId:             import.meta.env.VITE_FIREBASE_APP_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
 const app = initializeApp(firebaseConfig)
@@ -41,7 +41,7 @@ export async function fetchEvents() {
  * Fetch a single event by its Firestore document ID.
  */
 export async function fetchEventById(id) {
-  const ref  = doc(db, 'events', id)
+  const ref = doc(db, 'events', id)
   const snap = await getDoc(ref)
   if (!snap.exists()) throw new Error(`Event not found: ${id}`)
   return { id: snap.id, ...snap.data() }

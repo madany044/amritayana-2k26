@@ -5,7 +5,7 @@ import { fetchEvents, submitRegistration } from '../services/firebase'
 import styles from './Register.module.css'
 
 const SEMESTERS = ['2', '4', '6', '8', 'MBA']
-const BRANCHES  = ['CSE', 'ISE', 'AIML', 'ECE', 'MECH', 'CIVIL', 'MBA']
+const BRANCHES = ['CSE', 'ISE', 'AIML', 'ECE', 'MECH', 'CIVIL', 'MBA']
 
 function SoloInfo() {
   return (
@@ -119,20 +119,20 @@ export default function Register() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
 
-  const [events, setEvents]       = useState([])
+  const [events, setEvents] = useState([])
   const [selectedId, setSelectedId] = useState(searchParams.get('event') || '')
-  const [loading, setLoading]     = useState(false)
-  const [success, setSuccess]     = useState(false)
-  const [errors, setErrors]       = useState({})
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [errors, setErrors] = useState({})
 
   // Main participant fields
-  const [name,    setName]    = useState('')
-  const [sem,     setSem]     = useState('')
-  const [branch,  setBranch]  = useState('')
+  const [name, setName] = useState('')
+  const [sem, setSem] = useState('')
+  const [branch, setBranch] = useState('')
   const [contact, setContact] = useState('')
 
   // Team-specific state
-  const [teamName,    setTeamName]    = useState('')
+  const [teamName, setTeamName] = useState('')
   const [members, setMembers] = useState([{ id: memberIdCounter++, name: '' }])
 
   useEffect(() => {
@@ -142,7 +142,7 @@ export default function Register() {
   }, [])
 
   const selectedEvent = events.find(e => e.id === selectedId)
-  const category      = selectedEvent?.category ?? null
+  const category = selectedEvent?.category ?? null
 
   function addMember() {
     setMembers(prev => [...prev, { id: memberIdCounter++, name: '' }])
@@ -158,11 +158,11 @@ export default function Register() {
 
   function validate() {
     const errs = {}
-    if (!name.trim())    errs.name    = 'Name is required'
-    if (!sem)            errs.sem     = 'Semester is required'
-    if (!branch)         errs.branch  = 'Branch is required'
+    if (!name.trim()) errs.name = 'Name is required'
+    if (!sem) errs.sem = 'Semester is required'
+    if (!branch) errs.branch = 'Branch is required'
     if (!contact.trim()) errs.contact = 'Contact is required'
-    if (!selectedId)     errs.event   = 'Please select an event'
+    if (!selectedId) errs.event = 'Please select an event'
     if (category === 'team' && !teamName.trim()) errs.teamName = 'Team name is required'
     return errs
   }

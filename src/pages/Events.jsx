@@ -7,10 +7,10 @@ import styles from './Events.module.css'
 const FILTERS = ['all', 'solo', 'doubles', 'team']
 
 export default function Events() {
-  const [events, setEvents]     = useState([])
-  const [query, setQuery]       = useState('')
-  const [filter, setFilter]     = useState('all')
-  const [loading, setLoading]   = useState(true)
+  const [events, setEvents] = useState([])
+  const [query, setQuery] = useState('')
+  const [filter, setFilter] = useState('all')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchEvents()
@@ -22,7 +22,7 @@ export default function Events() {
   const filtered = useMemo(() => {
     return events.filter(ev => {
       const matchCat = filter === 'all' || ev.category === filter
-      const matchQ   = ev.name.toLowerCase().includes(query.toLowerCase())
+      const matchQ = ev.name.toLowerCase().includes(query.toLowerCase())
       return matchCat && matchQ
     })
   }, [events, filter, query])

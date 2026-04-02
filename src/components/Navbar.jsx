@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.nav}>
-      <span className={styles.logo} onClick={() => navigate('/')}>IGNITE'25</span>
+      <span className={styles.logo} onClick={() => navigate('/')}>AMRITAYANA-2K26</span>
 
       <div className={styles.links}>
         <NavLink to="/"           className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} end>Home</NavLink>
