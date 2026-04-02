@@ -55,6 +55,19 @@
 .cta:hover { opacity: 0.85; }
 
 @media (max-width: 600px) {
-  .links { gap: 1rem; }
-  .link  { display: none; }
+  .nav {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .links {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .link {
+    display: block;
+    font-size: 0.75rem;
+  }
 }

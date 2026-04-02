@@ -78,7 +78,9 @@ export async function submitRegistration(payload) {
 export async function fetchLeaderboard() {
   const snap = await getDocs(collection(db, 'results'))
   const POINTS = { 1: 10, 2: 6, 3: 3 }
-  const totals = {}
+  const totals = {
+    'CSE': 0, 'ISE': 0, 'AIML': 0, 'ECE': 0, 'MECH': 0, 'CIVIL': 0, 'MBA': 0
+  }
 
   snap.docs.forEach(d => {
     const { branch, position } = d.data()

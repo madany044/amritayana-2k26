@@ -7,7 +7,7 @@ const MEDAL = ['🥇', '🥈', '🥉']
 const RANK_COLORS = ['var(--accent)', '#C0C0C0', '#CD7F32']
 
 export default function Leaderboard() {
-  const [data, setData]       = useState([])
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState(null)
 
@@ -24,7 +24,7 @@ export default function Leaderboard() {
 
   useEffect(() => { load() }, [])
 
-  const max = data[0]?.points ?? 1
+  const max = data[0]?.points || 1
 
   return (
     <div className={styles.page}>
