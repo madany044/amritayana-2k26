@@ -44,7 +44,7 @@ export default function Home() {
           </h1>
 
           <p className={styles.heroSub}>
-            Two days of competition, culture, and celebration. Represent your branch,
+            A Bunch of competition, culture, and celebration. Represent your branch,
             dominate the arena, and etch your name in glory.
           </p>
 
