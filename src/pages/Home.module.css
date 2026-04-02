@@ -32,6 +32,38 @@
   max-width: 680px;
 }
 
+.miniMarqueeWrap {
+  overflow: hidden;
+  margin-bottom: 2rem;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.miniMarqueeInner {
+  display: flex;
+  gap: 1.5rem;
+  animation: marquee 12s linear infinite;
+  white-space: nowrap;
+}
+
+.miniMarqueeItem {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0.9;
+}
+
+.miniMarqueeDot {
+  width: 5px; height: 5px;
+  background: var(--text3);
+  border-radius: 50%;
+}
+
 .heroTag {
   display: inline-flex;
   align-items: center;

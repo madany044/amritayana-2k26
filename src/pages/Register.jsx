@@ -26,7 +26,7 @@ function DoublesSection() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <div className={styles.sectionTag}>// partner_details</div>
+      <div className={styles.sectionTag}></div>
 
       <div className="form-group">
         <label className="form-label">Partner Name</label>
@@ -60,7 +60,7 @@ function TeamSection({ members, onAdd, onRemove, onMemberChange, teamName, onTea
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <div className={styles.sectionTag}>// team_details</div>
+      <div className={styles.sectionTag}> </div>
 
       <div className="form-group">
         <label className="form-label">Team Name</label>
@@ -206,7 +206,7 @@ export default function Register() {
     <div className={styles.page}>
       <div className={styles.inner}>
         <div className={styles.header}>
-          <div className="section-tag">// registration_portal</div>
+          <div className="section-tag"></div>
           <div className={styles.title}>SIGN UP</div>
           <p className={styles.sub}>
             Fill in your details to register. The form adapts based on the event type.

@@ -13,7 +13,20 @@
   padding: 0 2rem;
 }
 
-.logo {
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logoImg {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
   font-family: var(--font-head);
   font-size: 1.6rem;
   letter-spacing: 2px;
@@ -21,7 +34,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  cursor: pointer;
 }
 
 .links {

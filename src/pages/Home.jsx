@@ -32,6 +32,16 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
+          <div className={styles.miniMarqueeWrap}>
+            <div className={styles.miniMarqueeInner}>
+              {[...Array(8)].map((_, i) => (
+                <span key={i} className={styles.miniMarqueeItem}>
+                  AMRITAYANA-2K26 <span className={styles.miniMarqueeDot} />
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className={styles.heroTag}>
             <span className={styles.pulse} />
             April 06–30, 2026 &nbsp;|&nbsp; MRIT Campus
@@ -55,7 +65,7 @@ export default function Home() {
         </motion.div>
 
         <div className={styles.heroStats}>
-          {[['9', 'Events'], ['7', 'Branches'], ['2', 'Days']].map(([n, l]) => (
+          {[['9', 'Events'], ['7', 'Branches'], ['24', 'Days']].map(([n, l]) => (
             <motion.div
               key={l}
               className={styles.statCard}
