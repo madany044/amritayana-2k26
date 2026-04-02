@@ -31,7 +31,7 @@ export default function Events() {
     <div className={styles.page}>
       <div className={styles.inner}>
         <div style={{ marginBottom: '2rem' }}>
-          <div className="section-tag">// all_events</div>
+          <div className="section-tag"> </div>
           <div className="section-title">ALL EVENTS</div>
         </div>
 
