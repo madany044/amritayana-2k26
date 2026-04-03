@@ -1,6 +1,8 @@
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(8, 10, 15, 0.85);
   backdrop-filter: blur(20px);
@@ -50,7 +52,11 @@
   text-transform: uppercase;
   transition: color 0.2s;
 }
-.link:hover, .active { color: var(--accent) !important; }
+
+.link:hover,
+.active {
+  color: var(--accent) !important;
+}
 
 .cta {
   background: var(--accent);
@@ -64,7 +70,10 @@
   text-transform: uppercase;
   transition: opacity 0.2s;
 }
-.cta:hover { opacity: 0.85; }
+
+.cta:hover {
+  opacity: 0.85;
+}
 
 @media (max-width: 600px) {
   .nav {
@@ -73,11 +82,13 @@
     padding: 1rem;
     gap: 1rem;
   }
+
   .links {
     gap: 0.8rem;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .link {
     display: block;
     font-size: 0.75rem;
