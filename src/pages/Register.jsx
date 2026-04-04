@@ -19,34 +19,51 @@ function SoloInfo() {
   )
 }
 
-function DoublesSection() {
+function DoublesSection({ name, onNameChange, sem, onSemChange, branch, onBranchChange, errors }) {
   return (
     <motion.div
       className={styles.dynamicSection}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <div className={styles.sectionTag}></div>
+      <div className={styles.sectionTag}>PARTNER DETAILS</div>
 
       <div className="form-group">
         <label className="form-label">Partner Name</label>
-        <input className="form-input" type="text" placeholder="Your partner's full name" />
+        <input
+          className="form-input"
+          type="text"
+          placeholder="Your partner's full name"
+          value={name}
+          onChange={e => onNameChange(e.target.value)}
+        />
+        {errors.partnerName && <div className="error-text">{errors.partnerName}</div>}
       </div>
 
       <div className={styles.twoCol}>
         <div className="form-group">
           <label className="form-label">Partner Semester</label>
-          <select className="form-select">
+          <select
+            className="form-select"
+            value={sem}
+            onChange={e => onSemChange(e.target.value)}
+          >
             <option value="">Select</option>
             {SEMESTERS.map(s => <option key={s}>{s}</option>)}
           </select>
+          {errors.partnerSem && <div className="error-text">{errors.partnerSem}</div>}
         </div>
         <div className="form-group">
           <label className="form-label">Partner Branch</label>
-          <select className="form-select">
+          <select
+            className="form-select"
+            value={branch}
+            onChange={e => onBranchChange(e.target.value)}
+          >
             <option value="">Select</option>
             {BRANCHES.map(b => <option key={b}>{b}</option>)}
           </select>
+          {errors.partnerBranch && <div className="error-text">{errors.partnerBranch}</div>}
         </div>
       </div>
     </motion.div>
@@ -131,9 +148,12 @@ export default function Register() {
   const [branch, setBranch] = useState('')
   const [contact, setContact] = useState('')
 
-  // Team-specific state
+  // Team/Doubles state
   const [teamName, setTeamName] = useState('')
   const [members, setMembers] = useState([{ id: memberIdCounter++, name: '' }])
+  const [partnerName, setPartnerName] = useState('')
+  const [partnerSem, setPartnerSem] = useState('')
+  const [partnerBranch, setPartnerBranch] = useState('')
 
   useEffect(() => {
     fetchEvents()
@@ -164,6 +184,11 @@ export default function Register() {
     if (!contact.trim()) errs.contact = 'Contact is required'
     if (!selectedId) errs.event = 'Please select an event'
     if (category === 'team' && !teamName.trim()) errs.teamName = 'Team name is required'
+    if (category === 'doubles') {
+      if (!partnerName.trim()) errs.partnerName = 'Partner name is required'
+      if (!partnerSem) errs.partnerSem = 'Partner semester is required'
+      if (!partnerBranch) errs.partnerBranch = 'Partner branch is required'
+    }
     return errs
   }
 
@@ -183,7 +208,7 @@ export default function Register() {
       team_members: category === 'solo'
         ? null
         : category === 'doubles'
-          ? [{ name: '' }]   // doubles partner data collected separately in UI
+          ? [{ name: partnerName.trim(), semester: partnerSem, branch: partnerBranch }]
           : members.map(m => ({ name: m.name })),
     }
 
@@ -193,6 +218,7 @@ export default function Register() {
       // Reset form
       setName(''); setSem(''); setBranch(''); setContact('')
       setSelectedId(''); setTeamName('')
+      setPartnerName(''); setPartnerSem(''); setPartnerBranch('')
       setMembers([{ id: memberIdCounter++, name: '' }])
     } catch (err) {
       console.error(err)
@@ -288,7 +314,18 @@ export default function Register() {
           {/* Dynamic section */}
           <AnimatePresence mode="wait">
             {category === 'solo' && <SoloInfo key="solo" />}
-            {category === 'doubles' && <DoublesSection key="doubles" />}
+            {category === 'doubles' && (
+              <DoublesSection
+                key="doubles"
+                name={partnerName}
+                onNameChange={setPartnerName}
+                sem={partnerSem}
+                onSemChange={setPartnerSem}
+                branch={partnerBranch}
+                onBranchChange={setPartnerBranch}
+                errors={errors}
+              />
+            )}
             {category === 'team' && (
               <TeamSection
                 key="team"
