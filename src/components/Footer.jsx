@@ -6,11 +6,15 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.content}>
           <p className={styles.queryText}>Facing any issues or queries?</p>
-          <div className={styles.contactCard}>
-            <span className={styles.label}>Contact:</span>
-            <span className={styles.name}>Madan Y</span>
-            <a href="tel:9353240289" className={styles.phone}>( 9353240289 )</a>
-            <span className={styles.dept}>, CSE- Final Year</span>
+          <p className={styles.contactLabel}>Contact:</p>
+          <div className={styles.contactDetails}>
+            <div className={styles.names}>
+              <span>Madan Y</span>
+              <span>Hemanth C</span>
+              <span>Nisarga H</span>
+            </div>
+            <a href="tel:9353240289" className={styles.phone}>[9353240289]</a>
+            <p className={styles.dept}>CSE Final Year</p>
           </div>
         </div>
         <div className={styles.divider}></div>

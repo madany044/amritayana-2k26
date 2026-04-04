@@ -31,32 +31,45 @@
   text-transform: uppercase;
   color: var(--text3);
   font-weight: 500;
+  margin-bottom: 0.25rem;
 }
 
-.contactCard {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
+.contactLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   color: var(--text);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.contactDetails {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-body);
+}
+
+.names {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.label {
-  color: var(--text2);
-}
-
-.name {
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 500;
+  margin: 0;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .phone {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   color: var(--accent2);
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   transition: opacity 0.2s;
 }
@@ -67,9 +80,14 @@
 }
 
 .dept {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   color: var(--text2);
   font-weight: 400;
-  font-size: 0.95rem;
+  margin: 0;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .divider {
@@ -96,10 +114,23 @@
     padding: 2.5rem 1rem 1.5rem;
   }
 
-  .contactCard {
-    font-size: 0.9rem;
-    flex-direction: column;
-    gap: 0.25rem;
+  .contactDetails {
+    gap: 0.2rem;
+  }
+
+  .names {
+    font-size: 0.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 250px;
+  }
+
+  .phone {
+    font-size: 0.8rem;
+  }
+
+  .dept {
+    font-size: 0.68rem;
   }
 
   .queryText {
