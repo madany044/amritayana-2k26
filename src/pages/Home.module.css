@@ -1,61 +1,60 @@
-.page { padding-top: 64px; }
+.page { 
+  padding-top: 64px;
+}
 
-/* HERO */
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
+  padding: 2rem;
   overflow: hidden;
-  padding: 4rem 2rem;
+}
+
+.heroInner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.heroBg, .heroGrid {
+  position: absolute; inset: 0;
+  pointer-events: none;
 }
 
 .heroBg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(232,255,71,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(71,255,212,0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.heroGrid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+  background: radial-gradient(circle at 70% 30%, rgba(232,255,71,0.05), transparent 70%);
 }
 
 .heroContent {
-  position: relative;
-  max-width: 680px;
+  max-width: 600px;
 }
 
 .miniMarqueeWrap {
   overflow: hidden;
   margin-bottom: 2rem;
   width: 100%;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .miniMarqueeInner {
   display: flex;
-  gap: 1.5rem;
-  animation: marquee 12s linear infinite;
+  gap: 2rem;
+  animation: marquee 15s linear infinite;
   white-space: nowrap;
 }
 
 .miniMarqueeItem {
   font-family: var(--font-head);
-  font-size: 1.6rem;
+  font-size: clamp(1rem, 4vw, 1.6rem);
   letter-spacing: 3px;
   color: var(--accent);
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .miniMarqueeDot {
@@ -65,46 +64,29 @@
 }
 
 .heroTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
   background: var(--surface);
-  border: 1px solid var(--border2);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
   border-radius: 100px;
-  padding: 6px 18px;
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
+  font-size: 0.7rem;
   color: var(--accent2);
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-}
-
-.pulse {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent2);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.3; transform: scale(0.8); }
+  margin-bottom: 1rem;
 }
 
 .heroH1 {
   font-family: var(--font-head);
-  font-size: clamp(4.5rem, 11vw, 9.5rem);
-  line-height: 0.88;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.9;
+  margin-bottom: 1rem;
 }
 
 .heroSub {
   color: var(--text2);
   font-size: 1rem;
-  line-height: 1.75;
-  max-width: 460px;
-  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 .heroActions {
@@ -114,96 +96,100 @@
 }
 
 .heroStats {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
+  margin-top: 3rem;
 }
 
 .statCard {
   background: var(--surface);
   border: 1px solid var(--border);
+  padding: 1rem;
   border-radius: 12px;
-  padding: 1.2rem 1.6rem;
+  flex: 1;
   text-align: center;
-  min-width: 110px;
 }
 
 .statNum {
   font-family: var(--font-head);
-  font-size: 2.8rem;
-  line-height: 1;
+  font-size: 2rem;
   color: var(--accent);
 }
 
 .statLabel {
-  font-size: 0.68rem;
-  color: var(--text2);
+  font-size: 0.6rem;
+  color: var(--text3);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 4px;
 }
 
 @media (max-width: 768px) {
-  .heroStats { display: none; }
+  .hero {
+    padding: 3rem 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .heroStats {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroH1 {
+    font-size: 3.2rem;
+  }
+  
+  .heroActions button {
+    width: 100%;
+  }
+
+  .heroStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /* MARQUEE */
 .marqueeWrap {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
-  overflow: hidden;
+  padding: 0.8rem 0;
   background: var(--bg2);
+  overflow: hidden;
 }
 
 .marqueeInner {
   display: flex;
-  gap: 3rem;
-  animation: marquee 22s linear infinite;
+  gap: 2rem;
+  animation: marquee 25s linear infinite;
   white-space: nowrap;
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .marqueeItem {
   font-family: var(--font-head);
-  font-size: 1.05rem;
-  letter-spacing: 2px;
   color: var(--text3);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-.marqueeDot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-/* FEATURED */
+/* GRID */
 .section {
+  padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 2rem;
 }
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
-  gap: 1rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .grid {

@@ -21,62 +21,58 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
-        <div className={styles.heroGrid} />
-
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className={styles.miniMarqueeWrap}>
-            <div className={styles.miniMarqueeInner}>
-              {[...Array(8)].map((_, i) => (
-                <span key={i} className={styles.miniMarqueeItem}>
-                  AMRITAYANA-2K26 <span className={styles.miniMarqueeDot} />
-                </span>
-              ))}
+        
+        <div className={styles.heroInner}>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* MINI MARQUEE */}
+            <div className={styles.miniMarqueeWrap}>
+              <div className={styles.miniMarqueeInner}>
+                {[...Array(8)].map((_, i) => (
+                  <span key={i} className={styles.miniMarqueeItem}>
+                    AMRITAYANA-2K26 <span className={styles.miniMarqueeDot} />
+                  </span>
+                ))}
+              </div>
             </div>
+
+            <div className={styles.heroTag}>
+              April 06–30, 2026 &nbsp;|&nbsp; MRIT Campus
+            </div>
+
+            <h1 className={styles.heroH1}>
+              THE <span className="grad-text">ANNUAL</span> FEST
+            </h1>
+
+            <p className={styles.heroSub}>
+              A Bunch of competition, culture, and celebration. Represent your branch,
+              dominate the arena, and etch your name in glory.
+            </p>
+
+            <div className={styles.heroActions}>
+              <button className="btn-primary" onClick={() => navigate('/events')}>Explore Events</button>
+              <button className="btn-outline" onClick={() => navigate('/register')}>Register Now</button>
+            </div>
+          </motion.div>
+
+          <div className={styles.heroStats}>
+            {[
+              ['9', 'Events'], 
+              ['7', 'Branches'], 
+              ['24', 'Days']
+            ].map(([n, l]) => (
+              <div key={l} className={styles.statCard}>
+                <div className={styles.statNum}>{n}</div>
+                <div className={styles.statLabel}>{l}</div>
+              </div>
+            ))}
           </div>
-
-          <div className={styles.heroTag}>
-            <span className={styles.pulse} />
-            April 06–30, 2026 &nbsp;|&nbsp; MRIT Campus
-          </div>
-
-          <h1 className={styles.heroH1}>
-            THE<br />
-            <span className="grad-text">ANNUAL</span><br />
-            FEST
-          </h1>
-
-          <p className={styles.heroSub}>
-            A Bunch of competition, culture, and celebration. Represent your branch,
-            dominate the arena, and etch your name in glory.
-          </p>
-
-          <div className={styles.heroActions}>
-            <button className="btn-primary" onClick={() => navigate('/events')}>Explore Events</button>
-            <button className="btn-outline" onClick={() => navigate('/register')}>Register Now</button>
-          </div>
-        </motion.div>
-
-        <div className={styles.heroStats}>
-          {[['9', 'Events'], ['7', 'Branches'], ['24', 'Days']].map(([n, l]) => (
-            <motion.div
-              key={l}
-              className={styles.statCard}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <div className={styles.statNum}>{n}</div>
-              <div className={styles.statLabel}>{l}</div>
-            </motion.div>
-          ))}
         </div>
       </section>
 
@@ -85,8 +81,7 @@ export default function Home() {
         <div className={styles.marqueeInner}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
             <span key={i} className={styles.marqueeItem}>
-              <span className={styles.marqueeDot} />
-              {item}
+              {item} &nbsp; • &nbsp;
             </span>
           ))}
         </div>
@@ -106,9 +101,9 @@ export default function Home() {
           {featured.map((ev, i) => (
             <motion.div
               key={ev.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
+              transition={{ delay: i * 0.05, duration: 0.3 }}
             >
               <EventCard event={ev} />
             </motion.div>

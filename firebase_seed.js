@@ -36,7 +36,7 @@ const EVENTS = [
     venue: 'Sports room',
     category: 'doubles',
     description: 'Faculty Coordinator: Mr Sudeep. Student Coordinator: Somashekar (CSE) Krishna (CSE).',
-    emoji: '🏓',
+    emoji: '<img src="/logo.png" alt="" className={styles.logoImg} />',
   },
   {
     name: 'Chess (Boys & Girls)',
