@@ -5,6 +5,7 @@ import Events from './pages/Events'
 import EventDetail from './pages/EventDetail'
 import Register from './pages/Register'
 import Leaderboard from './pages/Leaderboard'
+import Footer from './components/Footer'
 import './index.css'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/register"      element={<Register />} />
         <Route path="/leaderboard"   element={<Leaderboard />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

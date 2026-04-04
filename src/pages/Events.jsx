@@ -14,7 +14,16 @@ export default function Events() {
 
   useEffect(() => {
     fetchEvents()
-      .then(data => setEvents(data ?? []))
+      .then(data => {
+        if (!data) return setEvents([]);
+        // Sort by date (assuming April 2026 for all)
+        const sorted = [...data].sort((a, b) => {
+          const dayA = parseInt(a.date?.match(/\d+/)?.[0] || 0);
+          const dayB = parseInt(b.date?.match(/\d+/)?.[0] || 0);
+          return dayA - dayB;
+        });
+        setEvents(sorted);
+      })
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [])
