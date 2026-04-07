@@ -96,6 +96,43 @@ export default function Home() {
         </div>
       </div>
 
+      {/* MEGA EVENTS */}
+      <section className={styles.megaSection}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <div className="section-tag">// fest_highlights</div>
+            <div className="section-title">MEGA EVENTS.</div>
+            <p style={{ color: 'var(--text2)', marginTop: '0.8rem', fontSize: '1.05rem' }}> Pure entertainment, culture & celebrations.</p>
+          </div>
+        </div>
+
+        <div className={styles.megaScrollWrap}>
+          {[
+            { date: '06 Apr 2026', title: 'Logo Launch & Flash Mob', desc: 'The grand kickoff to Amritayana! Witness an electrifying flash mob.', bg: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800' },
+            { date: '27 Apr 2026', title: 'Ethnic Day', desc: 'Celebrate culture and tradition in your best and most beautiful ethnic wear.', bg: 'https://images.unsplash.com/photo-1599318011235-904154a09c36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+            { date: '28 Apr 2026', title: 'Fun Fair & Treasure Hunt', desc: 'Enjoy stalls, fun games, treasure hunting, and crazy mismatched outfits.', bg: 'https://images.unsplash.com/photo-1675225410545-79c63b2bd3f9?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+            { date: '29 Apr 2026', title: 'Stage Events', desc: 'Singing & Dance Competitions. Watch the best talents battle it out on stage.', bg: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800' },
+            { date: '30 Apr 2026', title: 'Grand Finale', desc: 'Formal Program, spectacular Fashion Show, & an unforgettable DJ Event.', bg: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800' },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className={styles.megaCardImg}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ delay: i * 0.1, duration: 0.4 }}
+            >
+              <div className={styles.megaCardBg} style={{ backgroundImage: `url(${item.bg})` }} />
+              <div className={styles.megaCardOverlay}>
+                <div className={styles.megaDateImg}>{item.date}</div>
+                <div className={styles.megaTitleImg}>{item.title}</div>
+                <div className={styles.megaDescImg}>{item.desc}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* FEATURED EVENTS */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
