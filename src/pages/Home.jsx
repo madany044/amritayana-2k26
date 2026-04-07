@@ -32,7 +32,7 @@ export default function Home() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroBg} />
-        
+
         <div className={styles.heroInner}>
           <motion.div
             className={styles.heroContent}
@@ -72,8 +72,8 @@ export default function Home() {
 
           <div className={styles.heroStats}>
             {[
-              ['9', 'Events'], 
-              ['7', 'Branches'], 
+              ['22', 'Events'],
+              ['7', 'Branches'],
               ['24', 'Days']
             ].map(([n, l]) => (
               <div key={l} className={styles.statCard}>
