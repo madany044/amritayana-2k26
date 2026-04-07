@@ -36,14 +36,14 @@ const EVENTS = [
     venue: 'Sports room',
     category: 'doubles',
     description: 'Faculty Coordinator: Mr Sudeep. Student Coordinator: Somashekar (CSE) Krishna (CSE).',
-    emoji: '<img src="/logo.png" alt="" className={styles.logoImg} />',
+    emoji: '🏓',
   },
   {
     name: 'Chess (Boys & Girls)',
     date: '8th April',
     venue: 'Sports room',
     category: 'solo',
-    description: 'Faculty Coordinators: Prof Sathyanarayan, Mr Sudeep. Student Coordinators:Somashekar, Krishna .',
+    description: 'Faculty Coordinators: Prof Sathyanarayan, Mr Sudeep. Student Coordinators:Somashekar,Nihal,Bindushree .',
     emoji: '♟',
   },
   {
@@ -51,7 +51,7 @@ const EVENTS = [
     date: '9th & 10th April',
     venue: 'MRIT Badminton court',
     category: 'doubles',
-    description: 'Faculty Coordinator: Prof Raghu. Student Coordinator: Nisarga H, Hemanth C.',
+    description: 'Faculty Coordinator: Prof Raghu. Student Coordinator: Keerthan (ECE) 6366201248, Deekshitha V (ECE) 9035560823 ',
     emoji: '🏸',
   },
   {
@@ -59,7 +59,7 @@ const EVENTS = [
     date: '11th April',
     venue: 'MRIT Ground',
     category: 'team',
-    description: 'Faculty Coordinators: Prof Dhanya, Prof Divya. Student Coordinators: Manoj (ECE), Keerthan(ECE).',
+    description: 'Faculty Coordinators: Prof Dhanya, Prof Divya. Student Coordinators: Manoj (ECE) 6363902189, Keerthan(ECE).',
     emoji: '💪',
   },
   {
@@ -67,7 +67,7 @@ const EVENTS = [
     date: '15th April',
     venue: 'Volleyball Court',
     category: 'team',
-    description: 'Faculty Coordinators: Prof Dhanya, Mr Sudeep. Student Coordinators: Tilak(ECE), Manoj (ECE).',
+    description: 'Faculty Coordinators: Prof Dhanya, Mr Sudeep. Student Coordinators: Bindan (ECE) 8050246496, Deekshitha V (ECE) 9035560823, Tharun.',
     emoji: '🏐',
   },
   {
@@ -75,7 +75,7 @@ const EVENTS = [
     date: '15th April',
     venue: 'Throwball Court',
     category: 'team',
-    description: 'Faculty Coordinators: Prof Harshitha, Mr Sudeep. Student Coordinator: Somashekar (CSE) , Krishna (CSE).',
+    description: 'Faculty Coordinators: Prof Harshitha, Mr Sudeep. Student Coordinator: Krishna (CSE) 779527304, Somashekar (CSE).',
     emoji: '🎯',
   },
   {
@@ -83,7 +83,7 @@ const EVENTS = [
     date: '16th & 17th April',
     venue: 'MRIT Badminton Court',
     category: 'doubles',
-    description: 'Faculty Coordinators: Mr Sudeep, Prof Bhoomika. Student Coordinators: Hemanth C(CSE) , Madan Y(CSE).',
+    description: 'Faculty Coordinators: Mr Sudeep, Prof Bhoomika. Student Coordinators: Hemanth C(CSE) 8073580159 , Madan Y(CSE).',
     emoji: '🏸',
   },
   {

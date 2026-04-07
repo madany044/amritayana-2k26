@@ -16,21 +16,25 @@
 .logoWrap {
   display: flex;
   align-items: center;
-  gap: 10px;
-  max-width: 70%;
+  gap: 12px;
+  cursor: pointer;
 }
 
 .logoImg {
-  height: 32px;
-  flex-shrink: 0;
+  height: 38px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logoText {
   font-family: var(--font-head);
-  font-size: clamp(0.7rem, 4vw, 1.5rem);
-  color: var(--accent);
-  line-height: 1.1;
+  font-size: 1.1rem;
   letter-spacing: 1px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
 }
 
 .links {
@@ -87,20 +91,6 @@
 
 @media (max-width: 900px) {
   .links {
-    display: none;
-  }
-  
-  .menuBtn {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
-  .logoText {
-    font-size: clamp(0.6rem, 3.2vw, 1.1rem);
-  }
-
-  .links {
     position: fixed;
     top: 64px;
     right: -100%;
@@ -110,10 +100,22 @@
     flex-direction: column;
     padding: 3rem 2rem;
     transition: 0.3s ease;
-    display: flex; /* Overriding display: none */
+    z-index: 99;
   }
   
   .linksOpen {
     right: 0;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoText {
+    font-size: 0.85rem;
+    white-space: normal;
+    text-align: left;
   }
 }

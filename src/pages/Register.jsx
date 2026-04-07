@@ -204,6 +204,7 @@ export default function Register() {
       branch,
       contact: contact.trim(),
       event_id: selectedId,
+      event_name: selectedEvent?.name || 'Unknown Event',
       team_name: category === 'team' ? teamName.trim() : null,
       team_members: category === 'solo'
         ? null
