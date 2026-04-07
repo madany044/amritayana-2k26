@@ -26,27 +26,29 @@ const db = getFirestore(app)
 // =========================================================
 
 const WINNER_DATA = {
-  eventName: "Mehandi",   // MUST match exactly an event name in the database
-  branch: "CSE",          // Branch of the winner (e.g. "CSE", "ECE", "MECH")
-  position: 1             // Position: 1 for 1st, 2 for 2nd, 3 for 3rd
+  eventName: "Table Tennis Doubles (Boys & Girls)",
+  branch: "CSE",
+  position: 3
 }
+
+console.log("DEBUG:", WINNER_DATA)
 
 const POINTS = { 1: 10, 2: 6, 3: 3 }
 
 async function publishWinningResult() {
   console.log(`\n🏆 Giving ${WINNER_DATA.position} position to ${WINNER_DATA.branch} in ${WINNER_DATA.eventName}...`)
-  
+
   // 1. Get the event ID by its name
   const q = query(collection(db, 'events'), where('name', '==', WINNER_DATA.eventName))
   const snap = await getDocs(q)
-  
+
   if (snap.empty) {
     console.error(`❌ Error: Event "${WINNER_DATA.eventName}" not found! Make sure you typed the name correctly.`)
     process.exit(1)
   }
-  
+
   const eventDoc = snap.docs[0] // take the first matched event
-  
+
   // 2. Insert into the results collection
   const newResult = {
     eventId: eventDoc.id,
@@ -54,7 +56,7 @@ async function publishWinningResult() {
     position: WINNER_DATA.position,
     points: POINTS[WINNER_DATA.position] || 0
   }
-  
+
   await addDoc(collection(db, 'results'), newResult)
   console.log(`✅ Success! Added ${POINTS[WINNER_DATA.position]} points to ${WINNER_DATA.branch} on the leaderboard.\n`)
 }

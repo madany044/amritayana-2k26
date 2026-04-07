@@ -79,12 +79,21 @@ export default function EventDetail() {
             )}
 
             {/* CTA */}
-            <button
-              className={`btn-primary ${styles.cta}`}
-              onClick={() => navigate(`/register?event=${event.id}`)}
-            >
-              Register for This Event →
-            </button>
+            {event.name?.toLowerCase().includes('chess') ? (
+              <div
+                className={`btn-primary ${styles.cta}`}
+                style={{ backgroundColor: '#dc2626', borderColor: '#dc2626', cursor: 'not-allowed', textAlign: 'center' }}
+              >
+                Registration Closed
+              </div>
+            ) : (
+              <button
+                className={`btn-primary ${styles.cta}`}
+                onClick={() => navigate(`/register?event=${event.id}`)}
+              >
+                Register for This Event →
+              </button>
+            )}
           </div>
         </motion.div>
       </div>

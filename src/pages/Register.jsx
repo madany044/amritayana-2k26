@@ -194,6 +194,13 @@ export default function Register() {
 
   async function handleSubmit() {
     const errs = validate()
+    
+    // Prevent chess registration
+    if (selectedEvent?.name?.toLowerCase().includes('chess')) {
+      alert('Registration for Chess is closed.')
+      return
+    }
+
     if (Object.keys(errs).length) { setErrors(errs); return }
     setErrors({})
     setLoading(true)
@@ -343,13 +350,19 @@ export default function Register() {
           {errors.teamName && <div className="error-text" style={{ marginTop: '-1rem', marginBottom: '1rem' }}>{errors.teamName}</div>}
 
           {/* Submit */}
-          <button
-            className={styles.submitBtn}
-            onClick={handleSubmit}
-            disabled={loading}
-          >
-            {loading ? 'Submitting…' : 'Submit Registration'}
-          </button>
+          {selectedEvent?.name?.toLowerCase().includes('chess') ? (
+            <div style={{ color: '#ef4444', textAlign: 'center', padding: '1rem', background: '#fee2e2', borderRadius: '8px', fontWeight: 'bold' }}>
+              Registration closed
+            </div>
+          ) : (
+            <button
+              className={styles.submitBtn}
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? 'Submitting…' : 'Submit Registration'}
+            </button>
+          )}
 
           {/* Success banner */}
           <AnimatePresence>
