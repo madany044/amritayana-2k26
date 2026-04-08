@@ -163,6 +163,8 @@ export default function Register() {
 
   const selectedEvent = events.find(e => e.id === selectedId)
   const category = selectedEvent?.category ?? null
+  const isStaffBadminton = selectedEvent?.name?.toLowerCase().includes('staff') && 
+                          selectedEvent?.name?.toLowerCase().includes('badminton')
 
   function addMember() {
     setMembers(prev => [...prev, { id: memberIdCounter++, name: '' }])
@@ -178,11 +180,20 @@ export default function Register() {
 
   function validate() {
     const errs = {}
+
+    if (!selectedId) {
+      errs.event = 'Please select an event'
+      return errs
+    }
+
+    // Skip validation for Staff Badminton as per user request
+    if (isStaffBadminton) return errs
+
     if (!name.trim()) errs.name = 'Name is required'
     if (!sem) errs.sem = 'Semester is required'
     if (!branch) errs.branch = 'Branch is required'
     if (!contact.trim()) errs.contact = 'Contact is required'
-    if (!selectedId) errs.event = 'Please select an event'
+    
     if (category === 'team' && !teamName.trim()) errs.teamName = 'Team name is required'
     if (category === 'doubles') {
       if (!partnerName.trim()) errs.partnerName = 'Partner name is required'
@@ -321,7 +332,18 @@ export default function Register() {
 
           {/* Dynamic section */}
           <AnimatePresence mode="wait">
-            {category === 'solo' && <SoloInfo key="solo" />}
+            {isStaffBadminton && (
+              <motion.div
+                key="staff-notice"
+                className={styles.infoBox}
+                style={{ backgroundColor: '#f0fdf4', borderColor: '#bbf7d0', color: '#15803d', marginBottom: '1.5rem', fontSize: '0.9rem' }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                ✦ Staff Badminton: All fields are optional. Fill only what you prefer.
+              </motion.div>
+            )}
+            {category === 'solo' && !isStaffBadminton && <SoloInfo key="solo" />}
             {category === 'doubles' && (
               <DoublesSection
                 key="doubles"
