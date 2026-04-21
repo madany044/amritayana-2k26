@@ -26,9 +26,9 @@ const db = getFirestore(app)
 // =========================================================
 
 const WINNER_DATA = {
-  eventName: "Table Tennis Doubles (Boys & Girls)",
-  branch: "CSE",
-  position: 3
+  eventName: "Badminton (Boys & Girls)",
+  branch: "ISE",
+  position: 2
 }
 
 console.log("DEBUG:", WINNER_DATA)

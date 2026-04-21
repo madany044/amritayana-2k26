@@ -206,9 +206,13 @@ export default function Register() {
   async function handleSubmit() {
     const errs = validate()
     
-    // Prevent chess registration
-    if (selectedEvent?.name?.toLowerCase().includes('chess')) {
-      alert('Registration for Chess is closed.')
+    // Prevent closed event registration
+    const isClosed = selectedEvent?.name?.toLowerCase().includes('chess') || 
+                     selectedEvent?.name?.toLowerCase().includes('cooking with fire') ||
+                     selectedEvent?.name?.toLowerCase().includes('cooking without fire')
+
+    if (isClosed) {
+      alert(`Registration for ${selectedEvent?.name} is closed.`)
       return
     }
 
@@ -372,7 +376,9 @@ export default function Register() {
           {errors.teamName && <div className="error-text" style={{ marginTop: '-1rem', marginBottom: '1rem' }}>{errors.teamName}</div>}
 
           {/* Submit */}
-          {selectedEvent?.name?.toLowerCase().includes('chess') ? (
+          { (selectedEvent?.name?.toLowerCase().includes('chess') || 
+               selectedEvent?.name?.toLowerCase().includes('cooking with fire') || 
+               selectedEvent?.name?.toLowerCase().includes('cooking without fire')) ? (
             <div style={{ color: '#ef4444', textAlign: 'center', padding: '1rem', background: '#fee2e2', borderRadius: '8px', fontWeight: 'bold' }}>
               Registration closed
             </div>

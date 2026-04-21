@@ -79,7 +79,9 @@ export default function EventDetail() {
             )}
 
             {/* CTA */}
-            {event.name?.toLowerCase().includes('chess') ? (
+            { (event.name?.toLowerCase().includes('chess') || 
+                event.name?.toLowerCase().includes('cooking with fire') || 
+                event.name?.toLowerCase().includes('cooking without fire')) ? (
               <div
                 className={`btn-primary ${styles.cta}`}
                 style={{ backgroundColor: '#dc2626', borderColor: '#dc2626', cursor: 'not-allowed', textAlign: 'center' }}
