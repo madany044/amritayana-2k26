@@ -208,8 +208,7 @@ export default function Register() {
     
     // Prevent closed event registration
     const isClosed = selectedEvent?.name?.toLowerCase().includes('chess') || 
-                     selectedEvent?.name?.toLowerCase().includes('cooking with fire') ||
-                     selectedEvent?.name?.toLowerCase().includes('cooking without fire')
+                     selectedEvent?.name?.toLowerCase().includes('cooking with fire')
 
     if (isClosed) {
       alert(`Registration for ${selectedEvent?.name} is closed.`)
@@ -377,8 +376,7 @@ export default function Register() {
 
           {/* Submit */}
           { (selectedEvent?.name?.toLowerCase().includes('chess') || 
-               selectedEvent?.name?.toLowerCase().includes('cooking with fire') || 
-               selectedEvent?.name?.toLowerCase().includes('cooking without fire')) ? (
+               selectedEvent?.name?.toLowerCase().includes('cooking with fire')) ? (
             <div style={{ color: '#ef4444', textAlign: 'center', padding: '1rem', background: '#fee2e2', borderRadius: '8px', fontWeight: 'bold' }}>
               Registration closed
             </div>
