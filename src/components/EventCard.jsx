@@ -18,6 +18,11 @@ export default function EventCard({ event }) {
         <span className={`badge badge-${event.category} ${styles.badge}`}>
           {event.category}
         </span>
+        {(event.name?.toLowerCase().includes('chess') || 
+          event.name?.toLowerCase().includes('cooking with fire') ||
+          event.name?.toLowerCase().includes('dance')) && (
+          <span className={styles.closedBadge}>CLOSED</span>
+        )}
       </div>
 
       <div className={styles.body}>
